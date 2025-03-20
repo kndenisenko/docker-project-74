@@ -33,8 +33,7 @@ jobs:
           load: true
           tags: ${{ env.APP_IMAGE_NAME }}
 
-      - name: Check
+      - name: Test
         run: |
           ls -la
-          ls -la /app
           docker compose --file docker-compose.yml up --abort-on-container-exit
