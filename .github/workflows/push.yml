@@ -34,7 +34,7 @@ jobs:
           tags: ${{ env.APP_IMAGE_NAME }}
 
       - name: Check
-        run: |
+        run:
           ls -la 
           cd /
           ls -la
