@@ -35,5 +35,4 @@ jobs:
 
       - name: Check
         run: |
-          make install
           docker compose --file docker-compose.yml up --abort-on-container-exit
