@@ -36,4 +36,7 @@ jobs:
       - name: Test
         run: |
           ls -la
+          echo "--------"
+          ls -la app
+          echo "--------"
           docker compose --file docker-compose.yml up --abort-on-container-exit
