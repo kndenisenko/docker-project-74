@@ -4,6 +4,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.production
+      # Для совместимости образа с Linux и Маками с процессами Apple Silicon
+      platforms: 
+        - "linux/amd64/v2"
+        - "linux/arm64"
+    image: geburah/docker-project-74:latest
     command: make test
     ports: 
       - "3000:8080"
