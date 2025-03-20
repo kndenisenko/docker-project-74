@@ -34,9 +34,7 @@ jobs:
           tags: ${{ env.APP_IMAGE_NAME }}
 
       - name: Check
-        run:
-          ls -la 
-          cd /
+        run: |
           ls -la
-          cd /app
-          ls -la
+          ls -la /app
+          docker compose --file docker-compose.yml up --abort-on-container-exit
