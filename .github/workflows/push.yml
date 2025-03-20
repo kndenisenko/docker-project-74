@@ -35,4 +35,4 @@ jobs:
 
       - name: Check
         run: |
-          docker compose --file docker-compose.yml up --abort-on-container-exit
+          make test
