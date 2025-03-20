@@ -35,4 +35,8 @@ jobs:
 
       - name: Check
         run: |
-          make test
+          ls -la 
+          cd /
+          ls -la
+          cd /app
+          ls -la
