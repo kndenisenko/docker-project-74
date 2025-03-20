@@ -1,0 +1,34 @@
+name: push
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  CI: true
+  APP_IMAGE_NAME: geburah/docker-project-74:latest
+  COLOR_MAP: '{ success: "#008000", failure: "#800000" }'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build App
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile.production
+          load: true
+          tags: ${{ env.APP_IMAGE_NAME }}
+
+      - name: Check
+        run: |
+          make install
+          docker compose --file docker-compose.yml up --abort-on-container-exit
