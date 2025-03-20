@@ -29,12 +29,8 @@ jobs:
         run: |
           echo "pwd"
           pwd
-          echo "docker ps -a"
-          docker ps -a
-          cd app
-          echo "npm install"
-          npm install
-          cd ..
+          echo "ls -la app"
+          ls -la app
           echo "docker compose --file docker-compose.yml up --abort-on-container-exit"
           docker compose --file docker-compose.yml up --abort-on-container-exit
 

@@ -12,5 +12,3 @@ services:
     command: make test
     ports: 
       - "3000:8080"
-    volumes: 
-      - ./app/:/app
