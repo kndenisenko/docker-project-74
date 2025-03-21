@@ -10,5 +10,3 @@ services:
         - "linux/arm64"
     image: geburah/docker-project-74:latest
     command: make test
-    ports: 
-      - "3000:8080"
