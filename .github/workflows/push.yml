@@ -31,8 +31,8 @@ jobs:
           pwd
           echo "ls -la app"
           ls -la app
-          echo "docker compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app"
-          docker compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
+          echo "docker compose --file docker-compose.yml up --abort-on-container-exit"
+          docker compose --file docker-compose.yml up --abort-on-container-exit
 
       - name: Login to DockerHub
         uses: docker/login-action@v3
@@ -45,4 +45,3 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ env.LATEST_TAG }}
